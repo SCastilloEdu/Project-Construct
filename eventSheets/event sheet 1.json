@@ -1,0 +1,392 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 314920598101462,
+					"parameters": {
+						"key": 37
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 799239416661855,
+					"parameters": {
+						"key": 65
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 961885351060494,
+					"behaviorType": "Car",
+					"parameters": {
+						"control": "steer-left"
+					}
+				}
+			],
+			"sid": 882743445843764,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 613680787426008,
+					"parameters": {
+						"key": 39
+					}
+				},
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 578977727018522,
+					"parameters": {
+						"key": 68
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 436426193889130,
+					"behaviorType": "Car",
+					"parameters": {
+						"control": "steer-right"
+					}
+				}
+			],
+			"sid": 437762745825338,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 470574641258036,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Player",
+					"sid": 848555344716013,
+					"parameters": {
+						"instance-variable": "Start",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 106031923950622
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Player",
+					"sid": 509226113060053,
+					"parameters": {
+						"instance-variable": "Start"
+					}
+				},
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 659946769620017
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "Player",
+					"sid": 113616897799402,
+					"behaviorType": "Car",
+					"parameters": {
+						"control": "accelerate"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Player",
+					"sid": 496698047676037,
+					"parameters": {
+						"object": "Trail",
+						"layer": "0",
+						"image-point": "0",
+						"create-hierarchy": false
+					}
+				}
+			],
+			"sid": 489316309985094
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Trail",
+					"sid": 183714827264558
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 648905076863224,
+					"parameters": {
+						"seconds": "1.0"
+					}
+				},
+				{
+					"id": "set-boolean-instvar",
+					"objectClass": "Trail",
+					"sid": 268655197019313,
+					"parameters": {
+						"instance-variable": "Collide",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 172892447930532
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Collision",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 998521245431744,
+							"parameters": {
+								"object": "Wall"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 180334490726052,
+							"parameters": {
+								"audio-file": "Ow",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Player",
+							"sid": 475496317518105,
+							"behaviorType": "Car"
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Player",
+							"sid": 485891516531584,
+							"behaviorType": "Car",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 154320660427023,
+							"parameters": {
+								"instance-variable": "Start",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 714909392053918,
+							"parameters": {
+								"instance-variable": "Crashed",
+								"value": "true"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player",
+							"sid": 805065430528894,
+							"parameters": {
+								"object": "Particles",
+								"layer": "2",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 781008941937605,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Player",
+							"sid": 827922989832677,
+							"parameters": {
+								"object": "Trail"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Trail",
+							"sid": 748467905212887,
+							"parameters": {
+								"instance-variable": "Collide"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 170311145524611,
+							"parameters": {
+								"audio-file": "Ow",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Player",
+							"sid": 770029843816866,
+							"behaviorType": "Car"
+						},
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "Player",
+							"sid": 549584724135952,
+							"behaviorType": "Car",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 796636782591475,
+							"parameters": {
+								"instance-variable": "Start",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Player",
+							"sid": 760010968229687,
+							"parameters": {
+								"instance-variable": "Crashed",
+								"value": "true"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player",
+							"sid": 291981962980898,
+							"parameters": {
+								"object": "Particles",
+								"layer": "2",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 368236737869036
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Child",
+							"sid": 336980206232360,
+							"parameters": {
+								"object": "Player"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 289980333256551,
+							"parameters": {
+								"audio-file": "Get",
+								"loop": "not-looping",
+								"volume": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Child",
+							"sid": 593062738425270
+						}
+					],
+					"sid": 391534843564784
+				}
+			],
+			"sid": 133656383668444
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 993952108134328,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Player",
+					"sid": 715945088119388,
+					"parameters": {
+						"instance-variable": "Crashed"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 504794020687831
+				}
+			],
+			"sid": 593698937564991
+		}
+	],
+	"sid": 345483532591420
+}

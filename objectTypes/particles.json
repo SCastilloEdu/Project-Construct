@@ -1,0 +1,25 @@
+{
+	"name": "Particles",
+	"plugin-id": "Particles",
+	"sid": 979242475429941,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [
+		{
+			"effectId": "warpobject",
+			"name": "WarpObject"
+		}
+	],
+	"image": {
+		"width": 250,
+		"height": 250,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7485087,
+		"useCollisionPoly": true
+	}
+}
