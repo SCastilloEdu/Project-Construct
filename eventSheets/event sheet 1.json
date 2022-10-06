@@ -230,14 +230,14 @@
 							}
 						},
 						{
-							"id": "spawn-another-object",
+							"id": "flash",
 							"objectClass": "Player",
-							"sid": 805065430528894,
+							"sid": 423950390221373,
+							"behaviorType": "Flash",
 							"parameters": {
-								"object": "Particles",
-								"layer": "2",
-								"image-point": "0",
-								"create-hierarchy": false
+								"on-time": "0.5",
+								"off-time": "0.5",
+								"duration": "99999999999999999"
 							}
 						}
 					],
@@ -250,7 +250,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Player",
-							"sid": 827922989832677,
+							"sid": 431220251636642,
 							"parameters": {
 								"object": "Trail"
 							}
@@ -258,7 +258,7 @@
 						{
 							"id": "is-boolean-instance-variable-set",
 							"objectClass": "Trail",
-							"sid": 748467905212887,
+							"sid": 204127231317648,
 							"parameters": {
 								"instance-variable": "Collide"
 							}
@@ -310,9 +310,50 @@
 							}
 						},
 						{
+							"id": "flash",
+							"objectClass": "Player",
+							"sid": 201965004325808,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.5",
+								"off-time": "0.5",
+								"duration": "99999999999999999"
+							}
+						}
+					],
+					"sid": 368236737869036
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-flashing",
+							"objectClass": "Player",
+							"sid": 405712933048472,
+							"behaviorType": "Flash"
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 905964247234820
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Trail",
+							"sid": 282566326754335,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.5",
+								"off-time": "0.5",
+								"duration": "99999999999999999"
+							}
+						},
+						{
 							"id": "spawn-another-object",
 							"objectClass": "Player",
-							"sid": 291981962980898,
+							"sid": 260178740611913,
 							"parameters": {
 								"object": "Particles",
 								"layer": "2",
@@ -321,7 +362,7 @@
 							}
 						}
 					],
-					"sid": 368236737869036
+					"sid": 623210382499701
 				},
 				{
 					"eventType": "block",

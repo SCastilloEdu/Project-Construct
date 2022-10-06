@@ -106,7 +106,7 @@
 							"isEnabled": true,
 							"parameters": {
 								"x-frequency": 10,
-								"y-frequency": 10,
+								"y-frequency": 5,
 								"x-amplitude": 1,
 								"y-amplitude": 1,
 								"x-speed": 1,
@@ -198,7 +198,7 @@
 							"isEnabled": true,
 							"parameters": {
 								"x-frequency": 10,
-								"y-frequency": 10,
+								"y-frequency": 5,
 								"x-amplitude": 1,
 								"y-amplitude": 1,
 								"x-speed": 1,
@@ -244,7 +244,7 @@
 							"isEnabled": true,
 							"parameters": {
 								"x-frequency": 10,
-								"y-frequency": 10,
+								"y-frequency": 5,
 								"x-amplitude": 1,
 								"y-amplitude": 1,
 								"x-speed": 1,
@@ -290,7 +290,7 @@
 							"isEnabled": true,
 							"parameters": {
 								"x-frequency": 10,
-								"y-frequency": 10,
+								"y-frequency": 5,
 								"x-amplitude": 1,
 								"y-amplitude": 1,
 								"x-speed": 1,
@@ -336,7 +336,7 @@
 							"isEnabled": true,
 							"parameters": {
 								"x-frequency": 10,
-								"y-frequency": 10,
+								"y-frequency": 5,
 								"x-amplitude": 1,
 								"y-amplitude": 1,
 								"x-speed": 1,
@@ -382,13 +382,16 @@
 								"acceleration": 150,
 								"deceleration": 300,
 								"steer-speed": 225,
-								"drift-recover": 185,
+								"drift-recover": 360,
 								"friction": 0.4,
-								"turn-while-stopped": true,
+								"turn-while-stopped": false,
 								"set-angle": true,
 								"default-controls": false,
 								"enabled": true
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -532,7 +535,7 @@
 				{
 					"type": "Particles",
 					"properties": {
-						"rate": 10,
+						"rate": 15,
 						"spray-cone": 360,
 						"type": "one-shot",
 						"object": -1,
@@ -546,7 +549,7 @@
 						"initial-speed-randomiser": 0,
 						"size-randomiser": 0,
 						"grow-rate-randomiser": 0,
-						"acceleration": -150,
+						"acceleration": -250,
 						"gravity": 0,
 						"angle-randomiser": 0,
 						"life-speed-randomiser": 800,
@@ -557,19 +560,6 @@
 					"uid": 15,
 					"instanceVariables": {},
 					"behaviors": {},
-					"effects": {
-						"WarpObject": {
-							"isEnabled": true,
-							"parameters": {
-								"x-frequency": 1,
-								"y-frequency": 1,
-								"x-amplitude": 1,
-								"y-amplitude": 1,
-								"x-speed": 4,
-								"y-speed": 4
-							}
-						}
-					},
 					"world": {
 						"x": 1368,
 						"y": 144,
@@ -634,7 +624,11 @@
 					"instanceVariables": {
 						"Collide": false
 					},
-					"behaviors": {},
+					"behaviors": {
+						"Flash": {
+							"properties": {}
+						}
+					},
 					"world": {
 						"x": 1368,
 						"y": 96,

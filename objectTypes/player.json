@@ -22,6 +22,11 @@
 			"behaviorId": "Car",
 			"name": "Car",
 			"sid": 462597222111125
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 623376649354923
 		}
 	],
 	"effectTypes": [],

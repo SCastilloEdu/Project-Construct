@@ -11,7 +11,13 @@
 			"sid": 359782187554446
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 924154792160388
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -25,7 +31,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5723326,
+						"imageSpriteId": 5179945,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
