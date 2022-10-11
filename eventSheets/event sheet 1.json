@@ -5,6 +5,64 @@
 			"eventType": "block",
 			"conditions": [
 				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 382861273872848
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 949756337040890,
+					"parameters": {
+						"object-to-create": "Sprite",
+						"layer": "1",
+						"x": "Player.x",
+						"y": "Player.Y",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "pin-to-object-distance",
+					"objectClass": "Sprite",
+					"sid": 182100057199517,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Player",
+						"mode": "rope-style"
+					}
+				}
+			],
+			"sid": 366455773017273
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 242279209853398
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "Sprite",
+					"sid": 679007251153596,
+					"parameters": {
+						"x": "Child.X",
+						"y": "Child.Y"
+					}
+				}
+			],
+			"sid": 577315242098063
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
 					"id": "key-is-down",
 					"objectClass": "Keyboard",
 					"sid": 314920598101462,
@@ -164,6 +222,35 @@
 				}
 			],
 			"sid": 172892447930532
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 272631015268167,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "is-boolean-instance-variable-set",
+					"objectClass": "Player",
+					"sid": 630392378379494,
+					"parameters": {
+						"instance-variable": "Crashed"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 400449118330563
+				}
+			],
+			"sid": 266597549905487
 		},
 		{
 			"eventType": "group",
@@ -351,6 +438,17 @@
 							}
 						},
 						{
+							"id": "flash",
+							"objectClass": "Sprite",
+							"sid": 593489242650071,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.5",
+								"off-time": "0.5",
+								"duration": "99999999999999999"
+							}
+						},
+						{
 							"id": "spawn-another-object",
 							"objectClass": "Player",
 							"sid": 260178740611913,
@@ -392,6 +490,14 @@
 							"id": "destroy",
 							"objectClass": "Child",
 							"sid": 593062738425270
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Sprite",
+							"sid": 706512786307425,
+							"parameters": {
+								"frame-number": "1"
+							}
 						}
 					],
 					"sid": 391534843564784
@@ -400,33 +506,60 @@
 			"sid": 133656383668444
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Animations",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "on-key-pressed",
-					"objectClass": "Keyboard",
-					"sid": 993952108134328,
-					"parameters": {
-						"key": 32
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "Child",
+							"sid": 447279251230457,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "Player.X"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Child",
+							"sid": 194863150709843,
+							"parameters": {
+								"state": "mirrored"
+							}
+						}
+					],
+					"sid": 451861897166181
 				},
 				{
-					"id": "is-boolean-instance-variable-set",
-					"objectClass": "Player",
-					"sid": 715945088119388,
-					"parameters": {
-						"instance-variable": "Crashed"
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 620803254666352
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Child",
+							"sid": 980529030154581,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						}
+					],
+					"sid": 471903029096385
 				}
 			],
-			"actions": [
-				{
-					"id": "restart-layout",
-					"objectClass": "System",
-					"sid": 504794020687831
-				}
-			],
-			"sid": 593698937564991
+			"sid": 836267811366506
 		}
 	],
 	"sid": 345483532591420
